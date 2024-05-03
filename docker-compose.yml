@@ -1,0 +1,20 @@
+name: bunker
+
+services:
+  front:
+    build: client/
+    container_name: bunker-front
+    restart: "always"
+    networks:
+      - bunker
+
+  api:
+    build: server/
+    container_name: bunker-api
+    restart: "always"
+    networks:
+      - bunker
+
+networks:
+  bunker:
+    name: bunker-network
