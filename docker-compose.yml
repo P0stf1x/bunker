@@ -7,6 +7,13 @@ services:
     restart: "always"
     networks:
       - bunker
+    environment:
+      # HOST: prfx.xyz
+      DANGEROUSLY_DISABLE_HOST_CHECK: true # FIXME
+    volumes:
+      - ./client/app/src:/code/src
+    # ports:
+    #   - 3000:3000
 
   api:
     build: server/
